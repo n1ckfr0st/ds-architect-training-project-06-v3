@@ -1,4 +1,6 @@
+
 export const spacers = {
+	0: "0px",
 	1: "1px",
 	2: "2px",
 	3: "3px",
@@ -10,8 +12,8 @@ export const spacers = {
 	10: "10px",
 	11: "11px",
 	12: "12px",
-	15: "15px",
 	14: "14px",
+	15: "15px",
 	16: "16px",
 	18: "18px",
 	20: "20px",
@@ -26,4 +28,8 @@ export const spacers = {
 	56: "56px",
 	64: "64px",
 	72: "72px",
+	80: "80px",
+	96: "96px",
+	360: "360px",
+	999: "999px",
 };
