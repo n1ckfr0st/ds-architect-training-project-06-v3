@@ -3,47 +3,17 @@ import { Icon, iconsType } from "../icon";
 
 // MAIN INTERFACE
 
-interface IButtonProps {
-    
-    /**
-     * Визуальный вес компонента
-     */
-    appearance?: "primaryBase" | "primaryDerivate" | "secondary" | "ghost";
-    
-    /**
-     * Физический размер компонента (для разных устройств)
-     */
+interface IButtonIconProps {
+    appearance?: "primary" | "secondary" | "ghost";
     size?: "xl" | "xs";
-    
-    /**
-     * Делает кнопку недоступной для взаимодействия
-     */
     disabled?: boolean;
-    
-    /**
-     * Отображает процесс вызванный нажатием
-     */
     loading?: boolean;
-    
-    /**
-     * Отображает иконку перед текстом
-     */
-    iconBefore?: iconsType;
-    
-    /**
-     * Отображает иконку после текста
-     */
-    iconAfter?: iconsType;
-
-    /**
-     * Наполнение текстом
-     */
-    text?: string;
+    icon?: iconsType;
 }
 
 // MAIN STYLES
 
-const StyledButton = styled.button<IButtonProps> 
+const StyledButtonIcon = styled.button<IButtonIconProps> 
 `
     border: 1px solid transparent;
     background: none;
@@ -53,7 +23,7 @@ const StyledButton = styled.button<IButtonProps>
     gap: ${(props) => props.theme.spacing.inner.close};
     justify-content: center;
     align-items: center;
-    padding: unset;
+    padding: 0;
     transition: ${(props) => props.theme.animation.base};
     &:focus {
         box-shadow: ${(props) => props.theme.focus};
@@ -64,7 +34,7 @@ const StyledButton = styled.button<IButtonProps>
 
     // APPEARANCE PROPS
 
-    ${(props) => props.appearance === "primaryBase" && 
+    ${(props) => props.appearance === "primary" && 
     `
         &:enabled {
             background-color: ${props.theme.colors.bg.interact.green.enabled};
@@ -116,6 +86,7 @@ const StyledButton = styled.button<IButtonProps>
     ${(props) => props.appearance === "ghost" && 
     `
         &:enabled {
+            background-color: ${props.theme.colors.bg.transparent};
             color: ${props.theme.colors.textIcon.interact.enabled};
         }
         &:hover {
@@ -151,43 +122,29 @@ const StyledButton = styled.button<IButtonProps>
     ${(props) => props.size === "xl" &&
     `
         height: ${props.theme.spacing.widthHeight.base};
-        padding: 0 ${props.theme.spacing.paddings.default};
-        font-size: ${props.theme.typography.fontSize.componet.base};
-        line-height: ${props.theme.typography.lineHeight.componet.base};
-        font-weight: ${props.theme.typography.fontWeight.regular};
+        width: ${props.theme.spacing.widthHeight.base};
     `}
     ${(props) => props.size === "xs" &&
     `
         height: ${props.theme.spacing.widthHeight.small};
-        padding: 0 ${props.theme.spacing.paddings.compact};
-        font-size: ${props.theme.typography.fontSize.componet.small};
-        line-height: ${props.theme.typography.lineHeight.componet.small};
-        font-weight: ${props.theme.typography.fontWeight.regular};
+        width: ${props.theme.spacing.widthHeight.small};
     `}
 `;
 
-/**
- * Используется как первичный призыв к действию, а также для перехода к другим разделам сайта.
- */
-export const Button: React.FC<IButtonProps> = ({
+export const ButtonIcon: React.FC<IButtonIconProps> = ({
     appearance, 
     size, 
     disabled, 
     loading, 
-    iconBefore, 
-    iconAfter, 
-    text = "buttonText"
+    icon, 
 }) => {
-    return <StyledButton 
+    return <StyledButtonIcon 
         appearance={appearance} 
         size={size} 
         disabled={disabled} 
         loading={loading}
-        iconBefore={iconBefore}
-        iconAfter={iconAfter}
+        icon={icon}
     >
-        {iconBefore && <Icon size={size === "xl" ? 20 : 16} iconName={iconBefore} />}
-        {text}
-        {iconAfter && <Icon size={size === "xl" ? 20 : 16} iconName={iconAfter} />}
-    </StyledButton>;
+        {icon && <Icon size={size === "xl" ? 20 : 16} iconName={icon} />}
+    </StyledButtonIcon>;
 };

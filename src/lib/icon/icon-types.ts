@@ -5,4 +5,5 @@ export type iconsType =
     | "chevronUp" 
     | "user" 
     | "options" 
-    | "download";
+    | "download"
+    | "close"
