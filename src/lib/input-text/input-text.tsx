@@ -43,13 +43,14 @@ interface IInputTextProps {
 	 */
 	iconBefore?:
 		| "user"
-		// | "chevronUp"
-		// | "chevronRight"
-		// | "chevronLeft"
-		// | "chevronDown"
-		// | "download"
+		| "chevronUp"
+		| "chevronRight"
+		| "chevronLeft"
+		| "chevronDown"
+		| "download"
 		| "password"
 }
+
 
 const StyledInputText = styled.div<IInputTextProps>`
 	display: flex;

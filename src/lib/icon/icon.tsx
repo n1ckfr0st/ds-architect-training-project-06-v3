@@ -17,6 +17,8 @@ export interface ISvgProps {
 	 * Размер иконки
 	 */
 	size?: number;
+	
+	className?: string;
 }
 
 const Svg = styled.svg<ISvgProps>`
