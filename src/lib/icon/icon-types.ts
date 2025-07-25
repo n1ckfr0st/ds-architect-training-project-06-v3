@@ -7,3 +7,4 @@ export type iconsType =
     | "options" 
     | "download"
     | "close"
+    | "password"

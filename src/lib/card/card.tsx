@@ -4,12 +4,39 @@ import { Badge } from "../badge";
 
 
 interface ICardProps {
+    /**
+	 * Визуальное разделение новости
+	 */
     appearance?:  "success" | "critical";
+
+    /**
+	 * Наполнение текстом
+	 */
     text?: string;
+
+    /**
+	 * Меняет размер шрифта
+	 */
     textSize?: "base" | "large";
+
+    /**
+	 * Дата новости, может быть календарной или отметкой сегодня
+	 */
     newsDate?: string;
+
+    /**
+	 * Классификатор новости
+	 */
     badgeText?: string;
+
+    /**
+	 * Текст кнопки
+	 */
     buttonText?: string;
+
+    /**
+	 * Используется для сложной композиции внутри карточки
+	 */
     children?: React.ReactNode;
 }
 

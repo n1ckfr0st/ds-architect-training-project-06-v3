@@ -84,6 +84,26 @@ const StyledButton = styled.button<IButtonProps>
         }
     `}
 
+    ${(props) => props.appearance === "primaryDerivate" && 
+    `
+        &:enabled {
+            background-color: ${props.theme.colors.bg.interact.gray.enabled};
+            color: ${props.theme.colors.textIcon.inverted};
+        }
+        &:hover {
+            background-color: ${props.theme.colors.bg.interact.gray.hover};
+        }
+        &:active {
+            background-color: ${props.theme.colors.bg.interact.gray.active};
+        }
+        &:focus {
+            background-color: ${props.theme.colors.bg.interact.gray.focus};
+        }
+        &:disabled {
+            background-color: ${props.theme.colors.bg.interact.gray.disabled};
+        }
+    `}
+
     ${(props) => props.appearance === "secondary" && 
     `
         &:enabled {

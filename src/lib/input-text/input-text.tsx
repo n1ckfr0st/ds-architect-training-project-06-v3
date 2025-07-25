@@ -43,29 +43,27 @@ interface IInputTextProps {
 	 */
 	iconBefore?:
 		| "user"
-		| "chevronUp"
-		| "chevronRight"
-		| "chevronLeft"
-		| "chevronDown"
-		| "download"
+		// | "chevronUp"
+		// | "chevronRight"
+		// | "chevronLeft"
+		// | "chevronDown"
+		// | "download"
+		| "password"
 }
 
 const StyledInputText = styled.div<IInputTextProps>`
 	display: flex;
-    align-items: center;
-	flex-direction: row;
+    align-items: left;
+	flex-direction: column;
 	// display: relative;
-	gap: ${(props) => props.theme.spacing.inner.related};
+	gap: ${(props) => props.theme.spacing.inner.closest};
 	justify-content: stretch;
 	outline: none;
 	color: ${(props) => props.theme.colors.textIcon.interact.enabled};
 
 	.input-composition {
 		position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: stretch;
-        
+		width: 100%;      
 	}
 
 	.input-icon {
@@ -85,9 +83,8 @@ const StyledInputText = styled.div<IInputTextProps>`
 		line-height: ${(props) => props.theme.typography.lineHeight.componet.base};
 		font-weight: ${(props) => props.theme.typography.fontWeight.regular};
 		color: ${(props) => props.theme.colors.textIcon.interact.enabled};
-        display: flex;
-        flex-direction: row;
-        justify-content: stretch;
+		min-width: 100%;
+		max-width: 100%;
 		transition: all 0.2s;
 
 		${(props) =>
@@ -99,7 +96,7 @@ const StyledInputText = styled.div<IInputTextProps>`
 		${(props) =>
 			props.iconBefore &&
 			`
-                padding-left: ${props.theme.spacing.paddings.compact};
+                padding-left: ${props.theme.spacing.paddings.large};
                 
                 `}
 
@@ -147,7 +144,7 @@ const StyledInputText = styled.div<IInputTextProps>`
  *
  */
 export const InputText: React.FC<IInputTextProps> = ({
-	placeholder = "Entere your email",
+	placeholder = "Enter your email",
 	value,
 	helpMessage,
 	errorMessage,

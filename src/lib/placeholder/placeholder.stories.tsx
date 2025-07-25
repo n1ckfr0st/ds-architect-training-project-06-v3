@@ -8,7 +8,6 @@ export default {
 		status: {
 			type: "beta", // 'beta' | 'stable' | 'deprecated' | 'releaseCandidate'
 		},
-		tags: ["autodocs"],
 	},
 
 	tags: ["autodocs"],

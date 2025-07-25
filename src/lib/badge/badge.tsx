@@ -14,7 +14,7 @@ interface IBadgeProps {
 	/**
 	 * Визуальный вес компонента
 	 */
-	appearance?: "gray" | "green";
+	appearance?: "critical" | "success";
 
 	/**
 	 * Переключает компонент в менее акцентный вид
@@ -75,8 +75,8 @@ const StyledBadge = styled.div<IBadgeProps>`
  */
 export const Badge: React.FC<IBadgeProps> = ({
 	text = "Hello badge",
-	size = "small",
-	appearance = "grey",
+	size = "xs",
+	appearance = "success",
 	outlined = false,
 }) => {
 	return (

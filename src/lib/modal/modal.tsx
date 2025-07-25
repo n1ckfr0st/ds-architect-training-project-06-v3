@@ -4,9 +4,24 @@ import { ButtonIcon } from "../button";
 import { InputText } from "../input-text";
 
 interface IModalProps {
+    /**
+     * Заголовок модального окна
+     */
     title?: string;
+
+    /**
+     * Название первичной кнопки
+     */
     primaryButtonText?: string;
+
+    /**
+     * Название вторичной кнопки
+     */
     secondaryButtonText?: string;
+
+    /**
+     * Локальный компонет
+     */
     children?: React.ReactNode;
 }
 
@@ -67,8 +82,8 @@ export const Modal: React.FC<IModalProps> = ({
             <ButtonIcon appearance="ghost" size="xl" icon="close"/>
         </div>
         <div className="modal-body">
-            <InputText label="Логин" placeholder="Введите логин" required/>
-            <InputText label="Пароль" placeholder="Введите пароль" required/>
+            <InputText label="Логин" placeholder="Введите логин" required iconBefore="user" />
+            <InputText label="Пароль" placeholder="Введите пароль" required iconBefore="password" />
             {children}
         </div>
         <div className="modal-footer">
